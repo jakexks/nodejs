@@ -10,9 +10,9 @@ FROM dockerfile/python
 # Install Node.js
 RUN \
   cd /tmp && \
-  wget http://nodejs.org/dist/node-latest.tar.gz && \
-  tar xvzf node-latest.tar.gz && \
-  rm -f node-latest.tar.gz && \
+  wget http://nodejs.org/dist/v0.11.14/node-v0.11.14.tar.gz && \
+  tar xvzf node-*.tar.gz && \
+  rm -f node-*.tar.gz && \
   cd node-v* && \
   ./configure && \
   CXX="g++ -Wno-unused-local-typedefs" make && \
@@ -26,4 +26,4 @@ RUN \
 WORKDIR /data
 
 # Define default command.
-CMD ["bash"]
+CMD ["/bin/bash"]
